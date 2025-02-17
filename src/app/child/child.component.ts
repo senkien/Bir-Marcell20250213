@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -7,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrl: './child.component.css'
 })
 export class ChildComponent {
+  @Input() a!: number;
+  @Input() b!: number;
+  @Output() result = new EventEmitter<number>();
+
+  calculate(isAddition: boolean) {
+    this.result.emit(isAddition ? this.a + this.b : this.a - this.b);
+  }
 
 }

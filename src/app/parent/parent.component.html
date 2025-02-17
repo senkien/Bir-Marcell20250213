@@ -1,1 +1,5 @@
-<p>parent works!</p>
+<input type="number" [(ngModel)]="a">
+<input type="number" [(ngModel)]="b">
+<app-child [a]="a" [b]="b" (result)="updateResult($event)"></app-child>
+        
+<p>eredmény: {{result}}</p>
